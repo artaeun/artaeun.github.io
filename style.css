@@ -89,13 +89,8 @@ h1 { font-size: clamp(2rem, 5.5vw, 2.9rem); font-weight: 400; letter-spacing: 0.
 
 section { padding: 2.6rem 0 2.9rem; }
 
-/* hazard-stripe divider between sections */
 section + section, #projects, footer {
-  border-top: 1px solid transparent;
-  border-image: repeating-linear-gradient(
-      135deg,
-      var(--gold-dim) 0 8px,
-      transparent 8px 18px) 1;
+  border-top: 1px solid var(--rule);
 }
 
 h2 {
