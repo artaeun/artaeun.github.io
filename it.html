@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alexandru Mihailescu</title>
-<meta name="description" content="Ingegnere applicato al machine learning. Computer vision, reinforcement learning, sistemi embedded. Laurea magistrale in Ingegneria dell'Automazione, Universita di Padova.">
+<meta name="description" content="Ingegnere applicato al machine learning. Computer vision, reinforcement learning, sistemi embedded. Laurea magistrale in Ingegneria dell'Automazione, Università di Padova.">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="data:,">
 </head>
@@ -20,7 +20,7 @@
   <div class="wrap">
     <h1>Alexandru Mihailescu</h1>
     <p class="role">Machine Learning Engineer</p>
-    <p class="sub">Computer vision, reinforcement learning e sistemi embedded. Costruisco i modelli, e costruisco l'hardware su cui girano.</p>
+    <p class="sub">Computer vision e reinforcement learning, su una formazione in controlli e robotica.</p>
 
     <ul class="contact">
       <li><a href="mailto:artaeun@gmail.com">artaeun@gmail.com</a></li>
@@ -30,7 +30,7 @@
       <li class="screen-only"><a href="#" class="linkedin-placeholder">LinkedIn</a></li>
     </ul>
 
-    <p class="availability"><strong>Disponibile dal 1 settembre.</strong> Aperto a ruoli in machine learning applicato, computer vision, AI embedded e ricerca e sviluppo. Veneto o da remoto.</p>
+    <p class="availability"><strong>Disponibile dal 1° settembre.</strong> Valuto ruoli in machine learning applicato, computer vision, AI embedded e ricerca e sviluppo, in Veneto o da remoto.</p>
   </div>
 </header>
 
@@ -38,46 +38,51 @@
 
 <section id="about">
   <h2>Profilo</h2>
-  <p>Sto concludendo la laurea magistrale in Ingegneria dell'Automazione e Informatica all'Universita di Padova, dopo una laurea triennale in Ingegneria Biomedica e un diploma di perito industriale in elettronica. Il mio lavoro sta nel punto in cui il machine learning incontra l'hardware: alleno il modello, poi progetto il riduttore, lo stampo, saldo la scheda e scrivo il firmware che gira sotto.</p>
-  <p>Questa ampiezza e il punto. Chi sa mettere a punto una CNN raramente ha impugnato un saldatore, e chi sa saldare raramente ha scritto una funzione di costo. Io ho portato a termine entrambe le cose, e i quattro progetti qui sotto sono la prova.</p>
+  <p>Sto concludendo la laurea magistrale in Ingegneria dell'Automazione e Informatica all'Università di Padova, con orientamento alla robotica. Prima di questa ho conseguito una laurea triennale in Ingegneria Biomedica e un diploma di perito industriale in elettronica.</p>
+  <p>Quel percorso mi ha lasciato l'abitudine a leggere un sistema per intero: dal sensore al segnale, dal segnale alla legge di controllo, dalla legge di controllo al modello. Lavoro su machine learning applicato, con particolare attenzione alla computer vision e al reinforcement learning. I progetti qui sotto documentano il metodo e i risultati.</p>
 </section>
 
 <section id="projects">
   <h2>Progetti</h2>
-  <p class="lede screen-only">Ognuno include una relazione tecnica completa in PDF, il codice sorgente e i dati dietro ogni affermazione.</p>
+  <p class="lede screen-only">Per ciascuno sono disponibili una relazione tecnica completa in PDF, il codice sorgente e i dati a supporto di ogni affermazione.</p>
 
   <article class="project">
     <h3><a href="https://github.com/artaeun/fine-grained-car-classification">Classificazione fine-grained di marche automobilistiche</a></h3>
-    <p class="metric">87,55% di accuratezza top-1 su CompCars, 4,65 punti sopra il riferimento OverFeat</p>
-    <p>Cinque architetture CNN a confronto su 30.955 immagini, 75 marche e 431 modelli: una CNN addestrata da zero, ResNet50, EfficientNet-B0, una variante con blocchi Squeeze-and-Excitation, e un modello gerarchico multi-task con backbone condiviso e due teste. Il compito ausiliario di riconoscimento del modello agisce da regolarizzatore sulla testa che predice la marca. EfficientNet-B0 raggiunge 844 immagini al secondo contro le 411 di ResNet50, con un sesto dei parametri.</p>
+    <p class="goal"><span>Obiettivo</span> Distinguere 75 marche automobilistiche da una sola fotografia, dove le classi differiscono per uno stemma e una linea di paraurti.</p>
+    <p class="metric"><span>Risultato</span> 87,55% di accuratezza top-1 su CompCars, 4,65 punti sopra il riferimento OverFeat pubblicato.</p>
+    <p>Cinque architetture CNN a confronto su 30.955 immagini, 75 marche e 431 modelli: una CNN addestrata da zero, ResNet50, EfficientNet-B0, una variante con blocchi Squeeze-and-Excitation e un modello gerarchico multi-task con backbone condiviso e due teste. Il compito ausiliario di riconoscimento del modello agisce da regolarizzatore sulla testa che predice la marca. EfficientNet-B0 raggiunge 844 immagini al secondo contro le 411 di ResNet50, con un sesto dei parametri.</p>
     <p class="stack">PyTorch, torchvision, CUDA, transfer learning, meccanismi di attenzione, multi-task learning</p>
   </article>
 
   <article class="project">
-    <h3><a href="https://github.com/artaeun/weather-classification-svm">Classificazione meteo con feature progettate a mano e SVM</a></h3>
-    <p class="metric">96,04% su MWD, e il descrittore si trasferisce su ACDC al 90,6%</p>
-    <p>Nessun deep learning. Descrittori di colore e Difference-of-Gaussian progettati a mano, 1562 dimensioni ridotte a 200 con PCA, e una SVM ottimizzata con GridSearch. La parte interessante e lo studio cross-dataset: lo stesso design delle feature, portato su un dataset con distribuzione diversa e con il classificatore riaddestrato, tiene al 90,6%. Questo quantifica quanto vale davvero un descrittore specializzato sul colore fuori dal suo dominio. I modelli addestrati sono inclusi nel repository, quindi il classificatore funziona senza scaricare nulla.</p>
+    <h3><a href="https://github.com/artaeun/weather-classification-svm">Classificazione meteo con feature engineering e SVM</a></h3>
+    <p class="goal"><span>Obiettivo</span> Classificare le condizioni meteo da una fotografia senza deep learning, e misurare quanto lontano arriva il design delle feature.</p>
+    <p class="metric"><span>Risultato</span> 96,04% su MWD, e lo stesso descrittore regge al 90,6% su un dataset con distribuzione diversa.</p>
+    <p>Approccio interamente classico, senza deep learning: descrittori di colore e Difference-of-Gaussian progettati a mano, 1562 dimensioni ridotte a 200 con PCA, SVM ottimizzata via GridSearch. Il contributo principale sta nello studio cross-dataset. Le stesse feature, portate su un dataset con distribuzione diversa e con il solo classificatore riaddestrato, reggono al 90,6%: una misura di quanto valga davvero un descrittore specializzato sul colore una volta uscito dal suo dominio. I modelli addestrati sono inclusi nel repository, così il classificatore gira senza scaricare nulla.</p>
     <p class="stack">scikit-learn, OpenCV, PCA, SVM, feature engineering</p>
   </article>
 
   <article class="project">
     <h3><a href="https://github.com/artaeun/deep-rl-snake">Deep Reinforcement Learning per Snake</a></h3>
-    <p class="metric">196% sopra il riferimento euristico, e l'agente cieco batte quello che vede tutto</p>
-    <p>Agenti PPO su un ambiente Gymnasium sviluppato da zero, confrontati sotto osservabilita completa e parziale e su tre diverse funzioni di ricompensa. L'agente limitato a una finestra 5x5 attorno alla propria testa ha superato quello che vedeva l'intera griglia, ed e l'unico che riesce a completare il tabellone. La variante con penalita per passo e una dimostrazione pulita di reward hacking: integrata sull'orizzonte temporale, la penalita superava il valore di due frutti, quindi morire subito diventava la strategia ottimale. Ed e esattamente quello che l'agente ha imparato.</p>
+    <p class="goal"><span>Obiettivo</span> Imparare Snake da ricompense sparse, e quantificare quanto valgano davvero l'osservabilità e il design della ricompensa.</p>
+    <p class="metric"><span>Risultato</span> 196% sopra il riferimento euristico, e l'agente che vede meno gioca meglio di quello che vede tutto.</p>
+    <p>Agenti PPO su un ambiente Gymnasium sviluppato da zero, confrontati in osservabilità completa e parziale e su tre diverse funzioni di ricompensa. L'agente limitato a una finestra 5x5 attorno alla propria testa supera quello che osserva l'intera griglia ed è l'unico a completare il tabellone. La variante con penalità per passo è un caso da manuale di reward hacking: integrata sull'orizzonte temporale, la penalità supera il valore di due frutti, quindi la politica ottimale diventa morire subito, ed è la politica che l'agente converge a imparare.</p>
     <p class="stack">PyTorch, Stable-Baselines3, Gymnasium, PPO, reward shaping, CUDA</p>
   </article>
 
   <article class="project">
     <h3><a href="https://github.com/artaeun/sunflower-solar-tracker">Sunflower: inseguitore solare a due assi</a></h3>
-    <p class="metric">Costruito da zero, dai denti degli ingranaggi alla legge di controllo</p>
-    <p>Un robot inseguitore solare realizzato quasi interamente con componenti gia disponibili in magazzino. Corpo e riduttore a ingranaggi cilindrici stampati in 3D, progettati in Fusion e OpenSCAD, elettronica custom attorno a un Arduino Nano e a un ponte H L298N, e un controllore ad anello chiuso che risale il gradiente della luminosita misurata. Il sensore non ha un valore di riferimento fisso su cui regolare, quindi un PID non avrebbe nulla da mantenere. Il primo riduttore ha bloccato i motori e lo stadio analogico si e guastato in fase di saldatura. Entrambi i fallimenti sono documentati nella relazione, con le conseguenze progettuali che hanno imposto.</p>
+    <p class="goal"><span>Obiettivo</span> Orientare un pannello solare verso la sorgente luminosa più intensa, con un sensore privo di un riferimento fisso su cui regolare.</p>
+    <p class="metric"><span>Risultato</span> Un inseguitore a due assi funzionante, dai denti degli ingranaggi alla legge di controllo, con componenti già a magazzino.</p>
+    <p>Un inseguitore solare realizzato quasi interamente con componenti già a magazzino. Corpo e riduttore a ingranaggi cilindrici stampati in 3D e progettati in Fusion e OpenSCAD, elettronica custom attorno a un Arduino Nano e a un ponte H L298N, controllo ad anello chiuso che risale il gradiente della luminosità misurata. La scelta del gradiente nasce da un vincolo preciso: il sensore non fornisce un riferimento fisso da inseguire, quindi un PID non avrebbe alcun errore da annullare. Il primo riduttore mandava i motori in stallo e lo stadio analogico si è guastato in fase di saldatura. Entrambi i guasti sono documentati nella relazione, insieme alle revisioni progettuali che hanno imposto.</p>
     <p class="stack">Arduino, C++, teoria del controllo, Autodesk Fusion, OpenSCAD, stampa FDM, calibrazione sensori</p>
   </article>
 
   <article class="project">
     <h3><a href="https://github.com/artaeun/IBM-UniPD">IBM-UniPD</a></h3>
-    <p class="metric">42 stelle, 7 fork, sei anni di manutenzione, ancora in uso</p>
-    <p>Un repository di risorse per Ingegneria Biomedica all'Universita di Padova: guide, date d'esame, testi, scadenze. Nato mentre ero Rappresentante degli Studenti, insieme a un server Discord per il corso. Entrambi sono ancora attivi e gli studenti li usano tuttora, anni dopo che ho smesso di avere l'obbligo di occuparmene.</p>
+    <p class="goal"><span>Obiettivo</span> Dare a un corso di laurea un unico posto dove trovare guide, date d'esame, prove passate e scadenze.</p>
+    <p class="metric"><span>Risultato</span> 42 stelle, 7 fork e sei anni di manutenzione. Gli studenti continuano a usarlo.</p>
+    <p>Repository di risorse per Ingegneria Biomedica all'Università di Padova: guide, date d'esame, prove passate, scadenze. Nato durante il mio mandato da Rappresentante degli Studenti, insieme al server Discord del corso. Entrambi sono ancora attivi e gli studenti continuano a usarli, molti anni dopo la fine del mandato.</p>
     <p class="stack">Manutenzione di community, documentazione, MATLAB</p>
   </article>
 </section>
@@ -88,7 +93,7 @@
   <div class="skillgrid">
     <div>
       <h3>Machine learning</h3>
-      <p>PyTorch, scikit-learn, OpenCV, NumPy, pandas, Stable-Baselines3, CUDA. Computer vision, reinforcement learning, transfer learning, meccanismi di attenzione, multi-task learning, continual learning, modelli vision-language (CLIP), modelli basati sull'energia e memorie associative (reti di Hopfield), feature engineering, PCA, SVM, disegno sperimentale.</p>
+      <p>PyTorch, scikit-learn, OpenCV, NumPy, pandas, Stable-Baselines3, CUDA. Computer vision, reinforcement learning, transfer learning, meccanismi di attenzione, multi-task learning, continual learning, modelli vision-language (CLIP), modelli basati sull'energia e memorie associative (reti di Hopfield), feature engineering, PCA, SVM, progettazione sperimentale.</p>
     </div>
     <div>
       <h3>Ingegneria e hardware</h3>
@@ -96,7 +101,7 @@
     </div>
     <div>
       <h3>Infrastruttura</h3>
-      <p>Linux, Bash, Git, Docker, Apptainer, orchestrazione di job SLURM su HPC, Weights &amp; Biases, uv, LaTeX. Pratiche di riproducibilita: ablazioni controllate, ambienti containerizzati, documentazione di ogni esecuzione.</p>
+      <p>Linux, Bash, Git, Docker, Apptainer, orchestrazione di job SLURM su HPC, Weights &amp; Biases, uv, LaTeX. Pratiche di riproducibilità: ablazioni controllate, ambienti containerizzati, tracciamento documentato di ogni esecuzione.</p>
     </div>
     <div>
       <h3>Linguaggi</h3>
@@ -109,20 +114,20 @@
   <h2>Esperienza</h2>
 
   <article class="entry">
-    <h3>Educatore privato <span class="org">Libero professionista</span></h3>
-    <p>Matematica, fisica, chimica, informatica e scienze e tecnologie applicate, a studenti delle scuole superiori in preparazione per diplomi tecnici e scientifici. Otto anni, con una base di clienti costruita interamente sul passaparola. Spiegare materiale difficile a persone che non sono obbligate a capirlo e la cosa piu vicina alla scrittura tecnica che sia anche pagata.</p>
+    <h3>Insegnante privato <span class="org">Libero professionista</span></h3>
+    <p>Matematica, fisica, chimica, informatica e scienze applicate, per studenti delle scuole superiori in preparazione ai diplomi tecnici e scientifici. Otto anni di attività, con una clientela costruita interamente sul passaparola. Spiegare argomenti difficili a chi non ha alcun obbligo di capirli è l'esercizio di scrittura tecnica più severo che conosca.</p>
   </article>
 
   <article class="entry">
-    <h3>Rappresentante degli Studenti e manutentore della community <span class="org">Ingegneria Biomedica, Universita di Padova</span></h3>
+    <h3>Rappresentante degli Studenti e manutentore della community <span class="org">Ingegneria Biomedica, Università di Padova</span></h3>
     <p>Rappresentante eletto del corso di laurea. Ho creato e mantengo tuttora il repository di risorse del corso (42 stelle, 7 fork) e il server Discord degli studenti, entrambi in uso quotidiano a sei anni di distanza.</p>
   </article>
 
   <article class="entry">
     <h3>Esperienze precedenti</h3>
-    <p><strong>Addetto alla produzione di resistenze elettriche industriali</strong> (R.I.C.A., divisione della I.r.c.a. S.p.A.). Il ciclo completo di produzione: taglio del tubo automatizzato e manuale, assemblaggio, riempitura, martellatura, rettifica, saldatura TIG e laser, insabbiatura, e collaudo finale elettrico e termico secondo criteri documentati.</p>
-    <p><strong>Tecnico informatico e generalista web</strong>, libero professionista. Riparazione hardware a livello di componente, assemblaggio e collaudo di sistemi, configurazione di sistemi operativi e reti. Realizzazione e personalizzazione di siti per clienti privati, sviluppo frontend, grafica e montaggio video.</p>
-    <p><strong>Volontario in servizio civile</strong> (Caritas). Gestione del database nazionale, produzione di contenuti video per laboratori scolastici, assistenza informatica in sede, e accompagnamento linguistico e supporto all'integrazione dei profughi presi in carico dalla Diocesi.</p>
+    <p><strong>Addetto alla produzione di resistenze elettriche industriali</strong> (R.I.C.A., divisione della I.r.c.a. S.p.A.). Ciclo di produzione completo: taglio del tubo automatizzato e manuale, assemblaggio, riempitura, martellatura, rettifica, saldatura TIG e laser, sabbiatura, collaudo finale elettrico e termico secondo criteri di accettazione documentati.</p>
+    <p><strong>Tecnico informatico e generalista web</strong>, libero professionista. Riparazione hardware a livello di componente, assemblaggio e benchmark di sistemi, configurazione di sistemi operativi e reti. Realizzazione e personalizzazione di siti per clienti privati, sviluppo frontend, grafica e montaggio video.</p>
+    <p><strong>Volontario in servizio civile</strong> (Caritas). Gestione del database, produzione di contenuti video a scopo didattico, assistenza informatica in sede, accompagnamento linguistico e supporto all'integrazione dei profughi presi in carico dalla Diocesi.</p>
   </article>
 </section>
 
@@ -130,15 +135,15 @@
   <h2>Formazione</h2>
 
   <article class="entry">
-    <h3>Laurea Magistrale in Ingegneria dell'Automazione e Informatica <span class="org">Universita di Padova, DEI</span></h3>
-    <p><strong>Laurea nella sessione autunnale. Disponibile dal 1 settembre.</strong></p>
+    <h3>Laurea Magistrale in Ingegneria dell'Automazione e Informatica <span class="org">Università di Padova, DEI</span></h3>
+    <p><strong>Laurea prevista nella sessione autunnale. Disponibile dal 1° settembre.</strong></p>
     <p>Corsi: Computer Vision (30 e lode), Reinforcement Learning, Neural Networks and Deep Learning, Machine Learning, Robotica e Controllo, Laboratorio di Ingegneria del Controllo, Controllo Digitale, Stima e Filtraggio, Modellistica e Controllo degli Azionamenti Elettrici, Ottimizzazione Convessa, Teoria dei Sistemi.</p>
-    <p>Tesi in ricerca applicata al machine learning: geometria delle rappresentazioni e vincoli topologici nelle reti neurali, su infrastruttura HPC.</p>
+    <p>Tesi di ricerca in machine learning applicato: geometria delle rappresentazioni e vincoli topologici nelle reti neurali, con esperimenti su infrastruttura HPC.</p>
   </article>
 
   <article class="entry">
-    <h3>Laurea Triennale in Ingegneria Biomedica <span class="org">Universita di Padova, DEI</span></h3>
-    <p>Elaborazione dei segnali, sensori e fisica applicata. E il motivo per cui sono attratto dai sistemi che toccano il mondo fisico.</p>
+    <h3>Laurea Triennale in Ingegneria Biomedica <span class="org">Università di Padova, DEI</span></h3>
+    <p>Elaborazione dei segnali, sensoristica e fisica applicata. Da qui viene il mio interesse per i sistemi che interagiscono con il mondo fisico.</p>
   </article>
 
   <article class="entry">
@@ -148,15 +153,14 @@
 
 <section id="interests" class="screen-only">
   <h2>Interessi</h2>
-  <p>Ho trasformato una Creality Ender 3 in qualcosa di sensibilmente migliore di com'era: modifiche hardware, una build personalizzata del firmware Marlin caricata via UART, e un profilo di slicing calibrato per pezzi funzionali in PETG con tolleranze strette. Quella macchina e il motivo per cui il riduttore del Sunflower esiste, ed e da li che viene gran parte del mio istinto per la progettazione orientata alla fabbricazione.</p>
-  <p>Per il resto: Factorio e Satisfactory, che sono ottimizzazione di throughput e colli di bottiglia travestita da gioco. Pianoforte, male e in miglioramento. Disegno, senza alcuna ragione particolare.</p>
+  <p>Ho rimesso mano a una Creality Ender 3 e ne ho tirato fuori una macchina sensibilmente migliore dell'originale: modifiche hardware, una build personalizzata del firmware Marlin caricata via UART, un profilo di slicing calibrato per pezzi funzionali in PETG con tolleranze strette. Quella stampante è la ragione per cui il riduttore del Sunflower esiste, ed è lì che ho maturato gran parte del mio istinto per la progettazione orientata alla fabbricazione.</p>
+  <p>Per il resto: Factorio e Satisfactory, ovvero ottimizzazione di throughput e colli di bottiglia travestita da videogioco. Pianoforte, male e in lento miglioramento. Disegno, per puro piacere.</p>
 </section>
 
 </main>
 
 <footer class="wrap">
-  <p class="screen-only">Fatto a mano. Sorgente su <a href="https://github.com/artaeun/artaeun.github.io">github.com/artaeun/artaeun.github.io</a>.</p>
-  <p class="print-only">artaeun@gmail.com &nbsp;&middot;&nbsp; +39 340 519 2139 &nbsp;&middot;&nbsp; github.com/artaeun</p>
+  <p class="print-only">artaeun@gmail.com &nbsp;&middot;&nbsp; +39 340 519 2139 &nbsp;&middot;&nbsp; Tombolo (PD), Italia &nbsp;&middot;&nbsp; Portfolio, codice e relazioni tecniche complete: github.com/artaeun &nbsp;&middot;&nbsp; artaeun.github.io</p>
 </footer>
 
 </body>
