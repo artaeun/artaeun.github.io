@@ -141,18 +141,25 @@ p + p { margin-top: 0.8rem; }
 
 .project { padding: 1.5rem 0; border-top: 1px solid var(--rule); }
 .project:first-of-type { border-top: 0; padding-top: 0; }
-.project h3 a { border: 0; }
-.project h3 a:hover { color: var(--gold-lit); }
 
-.goal, .metric { font-family: var(--mono); font-size: 0.82rem; line-height: 1.5; margin-top: 0.5rem; }
-.goal { color: var(--muted); }
-.metric {
+/* project titles carry the gradient, same as every other h3 on the page */
+.project h3 a {
+  border: 0;
   background-image: var(--grad);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: var(--gold);
 }
+.project h3 a:hover {
+  background-image: none;
+  -webkit-text-fill-color: var(--gold-lit);
+  color: var(--gold-lit);
+}
+
+.goal, .metric { font-family: var(--mono); font-size: 0.82rem; line-height: 1.5; margin-top: 0.5rem; }
+.goal { color: var(--muted); }
+.metric { color: var(--gold); }
 
 .goal span, .metric span {
   display: inline-block;
@@ -160,9 +167,9 @@ p + p { margin-top: 0.8rem; }
   font-size: 0.66rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  -webkit-text-fill-color: var(--muted);
+  color: var(--muted);
 }
-.metric span { -webkit-text-fill-color: var(--gold-dim); }
+.metric span { color: var(--gold-dim); }
 
 .project > p:not(.goal):not(.metric):not(.stack) { margin-top: 0.85rem; }
 
@@ -261,7 +268,7 @@ footer { padding: 2rem 0 3.5rem; color: var(--muted); font-size: 0.83rem; }
   .print-only { display: inline; }
 
   /* no gradients on paper: they print as mud */
-  strong, .role, h2, .metric, .skillgrid h3, .entry h3, .entry .org {
+  strong, .role, h2, .metric, .skillgrid h3, .entry h3, .entry .org, .project h3 a {
     background: none !important;
     -webkit-text-fill-color: currentColor !important;
     background-clip: border-box !important;
