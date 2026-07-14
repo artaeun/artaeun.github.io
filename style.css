@@ -1,13 +1,18 @@
 :root {
-  --ink: #0c0c0e;
-  --ink-2: #131317;
+  --ink: #0b0b0d;
+  --ink-2: #131318;
   --text: #efece5;
   --muted: #8b8b93;
-  --gold: #c9a227;
-  --gold-dim: #7d6720;
-  --rule: #24242a;
 
-  --serif: "Charter", "Bitstream Charter", "Constantia", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --gold: #c9a227;
+  --gold-lit: #f0d478;
+  --gold-dim: #7d6720;
+  --grad: linear-gradient(62deg, #f5dc8a 0%, #c9a227 55%, #a97f1c 100%);
+  --grad-cool: linear-gradient(62deg, #f0d478 0%, #c9a227 60%, #8d6f34 100%);
+
+  --rule: #23232a;
+
+  --serif: "Charter", "Bitstream Charter", Constantia, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
 
   --page: 62rem;
@@ -24,23 +29,24 @@ body {
   font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
 }
 
-.wrap {
-  width: 100%;
-  max-width: var(--page);
-  margin: 0 auto;
-  padding: 0 var(--gutter);
-}
+.wrap { width: 100%; max-width: var(--page); margin: 0 auto; padding: 0 var(--gutter); }
 
 a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-dim); }
-a:hover { color: var(--text); border-bottom-color: var(--text); }
+a:hover { color: var(--gold-lit); border-bottom-color: var(--gold-lit); }
+
+/* Obsidianite move: bold text is a gradient, clipped to the glyphs. */
+strong {
+  background-image: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--gold);
+  font-weight: 600;
+}
 
 /* ---------- hero ---------- */
 
-.hero {
-  border-bottom: 1px solid var(--rule);
-  padding: 4.5rem 0 2.6rem;
-  background: linear-gradient(180deg, var(--ink-2), var(--ink));
-}
+.hero { padding: 4.5rem 0 2.4rem; background: linear-gradient(180deg, var(--ink-2), var(--ink)); }
 
 h1 { font-size: clamp(2rem, 5.5vw, 2.9rem); font-weight: 400; letter-spacing: 0.01em; line-height: 1.08; }
 
@@ -49,11 +55,14 @@ h1 { font-size: clamp(2rem, 5.5vw, 2.9rem); font-weight: 400; letter-spacing: 0.
   font-size: 0.76rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--gold);
   margin: 0.85rem 0 0;
   padding-top: 0.85rem;
   border-top: 2px solid var(--gold);
   display: inline-block;
+  background-image: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .sub { color: var(--muted); margin-top: 0.9rem; }
@@ -75,23 +84,55 @@ h1 { font-size: clamp(2rem, 5.5vw, 2.9rem); font-weight: 400; letter-spacing: 0.
   background: rgba(201, 162, 39, 0.06);
   font-size: 0.93rem;
 }
-.availability strong { color: var(--gold); }
 
-/* ---------- sections ---------- */
+/* ---------- sections: the worksite rule ---------- */
 
-section { padding: 2.8rem 0; border-bottom: 1px solid var(--rule); }
-section:last-of-type { border-bottom: 0; }
+section { padding: 2.6rem 0 2.9rem; }
+
+/* hazard-stripe divider between sections */
+section + section, #projects, footer {
+  border-top: 1px solid transparent;
+  border-image: repeating-linear-gradient(
+      135deg,
+      var(--gold-dim) 0 8px,
+      transparent 8px 18px) 1;
+}
 
 h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
   font-family: var(--mono);
-  font-size: 0.72rem; font-weight: 500;
-  letter-spacing: 0.26em; text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 1.5rem;
+  font-size: 1.28rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.7rem;
+  background-image: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-h2::before { content: "/ "; color: var(--gold); }
 
-h3 { font-size: 1.16rem; font-weight: 600; }
+h2::before {
+  content: "///";
+  -webkit-text-fill-color: var(--gold-dim);
+  letter-spacing: -0.05em;
+  font-weight: 400;
+}
+
+h2::after {
+  content: "";
+  flex: 1;
+  height: 6px;
+  background: repeating-linear-gradient(
+      135deg,
+      var(--gold-dim) 0 5px,
+      transparent 5px 11px);
+  opacity: 0.55;
+}
+
+h3 { font-size: 1.1rem; font-weight: 600; letter-spacing: 0.005em; }
 
 p + p { margin-top: 0.8rem; }
 .lede { color: var(--muted); margin-bottom: 1.8rem; }
@@ -101,16 +142,17 @@ p + p { margin-top: 0.8rem; }
 .project { padding: 1.5rem 0; border-top: 1px solid var(--rule); }
 .project:first-of-type { border-top: 0; padding-top: 0; }
 .project h3 a { border: 0; }
-.project h3 a:hover { color: var(--gold); }
+.project h3 a:hover { color: var(--gold-lit); }
 
-.goal, .metric {
-  font-family: var(--mono);
-  font-size: 0.83rem;
-  line-height: 1.5;
-  margin-top: 0.5rem;
-}
+.goal, .metric { font-family: var(--mono); font-size: 0.82rem; line-height: 1.5; margin-top: 0.5rem; }
 .goal { color: var(--muted); }
-.metric { color: var(--gold); }
+.metric {
+  background-image: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--gold);
+}
 
 .goal span, .metric span {
   display: inline-block;
@@ -118,24 +160,28 @@ p + p { margin-top: 0.8rem; }
   font-size: 0.66rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  -webkit-text-fill-color: var(--muted);
 }
-.metric span { color: var(--gold-dim); }
+.metric span { -webkit-text-fill-color: var(--gold-dim); }
 
 .project > p:not(.goal):not(.metric):not(.stack) { margin-top: 0.85rem; }
 
-.stack {
-  margin-top: 0.7rem;
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 0.03em;
-}
+.stack { margin-top: 0.7rem; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.03em; }
 
 /* ---------- skills ---------- */
 
-.skillgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.6rem; }
-.skillgrid h3 { font-size: 0.9rem; color: var(--gold); margin-bottom: 0.4rem; }
+.skillgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.8rem; }
+.skillgrid h3 {
+  font-size: 0.88rem;
+  font-family: var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  background-image: var(--grad-cool);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .skillgrid p { font-size: 0.92rem; color: var(--muted); }
 
 /* ---------- entries ---------- */
@@ -158,51 +204,51 @@ p + p { margin-top: 0.8rem; }
 .toolbar a:hover, .toolbar button:hover { color: var(--gold); border-color: var(--gold); }
 .toolbar a.on { color: var(--gold); border-color: var(--gold); }
 
-footer { padding: 2.2rem 0 3.5rem; color: var(--muted); font-size: 0.83rem; }
+footer { padding: 2rem 0 3.5rem; color: var(--muted); font-size: 0.83rem; }
 
 .print-only { display: none; }
 
 @media (max-width: 46rem) {
-  :root { --gutter: 1.4rem; }
   body { font-size: 16px; }
   .hero { padding: 3.2rem 0 2rem; }
   .toolbar { position: static; justify-content: flex-end; padding: 1rem 1.4rem 0; }
+  h2 { font-size: 1.1rem; }
   .goal span, .metric span { display: block; min-width: 0; margin-bottom: 0.1rem; }
 }
 
 /* ======================================================================
-   PRINT. This is the CV.
-   Experience leads. Projects are dropped entirely; the portfolio is a link.
+   PRINT. Its own template. None of the above decoration survives.
    ====================================================================== */
 
 @media print {
 
-  /* margin: 0 on the page, real margins as body padding.
-     This survives a browser print dialog set to "None" or "Minimum", which
-     silently overrides an @page margin and is why the PDF came out edge to edge. */
+  /* @page margin is zero and the real margins are body padding, so a print
+     dialog set to None or Minimum cannot flatten them. */
   @page { size: A4 portrait; margin: 0; }
 
   html, body { background: #fff !important; color: #1a1a1a !important; }
 
   body {
-    font: 400 9.3pt/1.4 var(--serif);
+    font: 400 9.3pt/1.42 var(--serif);
     font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-    padding: 17mm 21mm 15mm;      /* the actual page margins */
     width: 210mm;
+    padding: 17mm 21mm 15mm;
   }
 
   .wrap { max-width: none; width: auto; padding: 0; margin: 0; }
 
-  /* nothing interactive, nothing decorative, no long prose */
-  .toolbar,
-  .screen-only,
-  #interests { display: none !important; }
-
+  .toolbar, .screen-only, #interests { display: none !important; }
   .print-only { display: inline; }
 
-  /* reorder: experience leads, then projects, then education, then skills */
+  /* no gradients on paper: they print as mud */
+  strong, .role, h2, .metric, .skillgrid h3 {
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+    background-clip: border-box !important;
+  }
+
   main { display: flex; flex-direction: column; }
   #about      { order: 1; }
   #experience { order: 2; }
@@ -213,113 +259,133 @@ footer { padding: 2.2rem 0 3.5rem; color: var(--muted); font-size: 0.83rem; }
   /* ---- header ---- */
   .hero {
     background: none !important;
+    border: 0;
     border-bottom: 1.6pt solid #9a7c14;
     padding: 0 0 7pt;
     margin-bottom: 2pt;
   }
   h1 { font-size: 20pt; letter-spacing: 0.02em; color: #111; }
   .role {
-    border-top: 0; padding: 0; margin: 2pt 0 0;
-    font-size: 7.6pt; letter-spacing: 0.2em; color: #9a7c14;
+    border-top: 0; padding: 0; margin: 2.5pt 0 0;
+    font-size: 8pt; letter-spacing: 0.18em; font-weight: 600;
+    color: #9a7c14 !important;
   }
-  .sub { margin-top: 3pt; font-size: 9pt; color: #444; }
+  .sub { margin-top: 3.5pt; font-size: 9.2pt; color: #444; }
+
+  /* contact: serif, not mono. Mono was stretching the phone digits apart. */
   .contact {
-    margin-top: 5pt; gap: 1pt 12pt;
-    font-size: 8.2pt; color: #444;
+    margin-top: 7pt;
+    gap: 3pt 20pt;
+    font-family: var(--serif);
+    font-size: 9pt;
+    letter-spacing: 0;
+    color: #333;
   }
-  .contact a { color: #444; border: 0; }
+  .contact li { white-space: nowrap; }
+  .contact a { color: #333; border: 0; }
 
   .availability {
-    margin-top: 6pt; padding: 4pt 7pt;
-    font-size: 8.8pt;
+    margin-top: 7pt; padding: 4pt 7pt; font-size: 8.8pt;
     background: #faf6ea !important;
     border-left: 2pt solid #9a7c14;
     break-inside: avoid;
   }
-  .availability strong { color: #8a6d12; }
+  .availability strong { color: #8a6d12 !important; }
 
   /* ---- sections ---- */
   section {
-    padding: 7pt 0 0;
-    border-bottom: 0;
+    padding: 8pt 0 0;
+    border: 0 !important;
+    border-image: none !important;
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
   h2 {
-    font-size: 7.2pt; letter-spacing: 0.2em;
-    color: #9a7c14;
-    margin: 0 0 4pt;
-    padding-bottom: 1.5pt;
-    border-bottom: 0.4pt solid #ddd;
+    display: block;
+    font-family: var(--mono);
+    font-size: 10.5pt;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #9a7c14 !important;
+    margin: 0 0 5pt;
+    padding-bottom: 2pt;
+    border-bottom: 0.6pt solid #d8cba4;
   }
-  h2::before { content: none; }
+  h2::before, h2::after { content: none !important; }
 
-  h3 { font-size: 9.6pt; color: #111; }
+  h3 { font-size: 9.4pt; color: #111; }
 
-  #about p { font-size: 9pt; color: #333; }
-  #about p + p { margin-top: 2.5pt; }
+  #about p { font-size: 9.1pt; color: #333; }
+  #about p + p { margin-top: 3pt; }
 
+  /* ---- experience ---- */
   .entry {
-    padding: 4.5pt 0;
+    padding: 5pt 0;
     border-top: 0.35pt solid #e6e6e6;
     break-inside: avoid;
-    page-break-inside: avoid;
   }
   .entry:first-of-type { border-top: 0; padding-top: 1pt; }
-  .entry .org { font-size: 8.2pt; color: #666; margin-top: 0.5pt; }
-  .entry p { font-size: 8.8pt; color: #333; margin-top: 2.5pt; }
+  .entry .org { font-size: 8.4pt; color: #666; margin-top: 0.5pt; }
+  .entry p { font-size: 8.9pt; color: #333; margin-top: 2.5pt; }
 
   /* ---- projects on paper: title, goal, result. No prose, no stack. ---- */
-
   .project {
-    padding: 3.5pt 0;
+    padding: 4pt 0;
     border-top: 0.35pt solid #e6e6e6;
     break-inside: avoid;
-    page-break-inside: avoid;
   }
   .project:first-of-type { border-top: 0; padding-top: 1pt; }
   .project h3 { font-size: 9.2pt; }
   .project h3 a { color: #111; }
 
-  /* the long descriptive paragraph and the stack row are screen only */
   .project > p:not(.goal):not(.metric) { display: none !important; }
 
-  /* IBM-UniPD already has an Experience entry; do not print it twice */
+  /* IBM-UniPD has its own Experience entry; do not print it twice */
   #projects .project:last-of-type { display: none !important; }
 
   .goal, .metric {
     display: block;
     font-family: var(--serif);
-    font-size: 8.7pt;
-    line-height: 1.34;
-    margin-top: 1.5pt;
-    text-indent: -3.9rem;
-    padding-left: 3.9rem;
+    font-size: 8.8pt;
+    line-height: 1.35;
+    margin-top: 1.8pt;
+    text-indent: -3.7rem;
+    padding-left: 3.7rem;
+    color: #333 !important;
   }
-  .goal { color: #444; }
-  .metric { color: #333; }
+  .goal { color: #555 !important; }
 
   .goal span, .metric span {
     display: inline-block;
-    min-width: 3.9rem;
+    min-width: 3.7rem;
     font-family: var(--mono);
     font-size: 6.8pt;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-indent: 0;
+    -webkit-text-fill-color: currentColor !important;
   }
-  .goal span { color: #888; }
-  .metric span { color: #9a7c14; }
+  .goal span { color: #999 !important; }
+  .metric span { color: #9a7c14 !important; }
 
-  .skillgrid { grid-template-columns: 1fr 1fr; gap: 4pt 14pt; }
-  .skillgrid h3 { font-size: 8.4pt; color: #9a7c14; margin-bottom: 0.5pt; }
-  .skillgrid p { font-size: 8.4pt; color: #333; line-height: 1.36; }
+  /* ---- skills ---- */
+  .skillgrid { grid-template-columns: 1fr 1fr; gap: 9pt 16pt; }
+  .skillgrid h3 {
+    font-size: 8.6pt;
+    font-family: var(--mono);
+    letter-spacing: 0.08em;
+    color: #9a7c14 !important;
+    margin-bottom: 1.5pt;
+  }
+  .skillgrid p { font-size: 8.5pt; color: #333; line-height: 1.38; }
 
   footer {
-    padding: 6pt 0 0;
-    margin-top: 7pt;
-    border-top: 0.4pt solid #ddd;
+    padding: 7pt 0 0;
+    margin-top: 8pt;
+    border: 0 !important;
+    border-top: 0.4pt solid #ddd !important;
+    border-image: none !important;
     font-size: 8pt;
     color: #555;
   }
