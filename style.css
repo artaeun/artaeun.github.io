@@ -10,8 +10,8 @@
   --serif: "Charter", "Bitstream Charter", "Constantia", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
 
-  --page: 210mm;          /* the document is an A4 column, on screen and on paper */
-  --gutter: 18mm;
+  --page: 62rem;
+  --gutter: 1.6rem;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -177,33 +177,38 @@ footer { padding: 2.2rem 0 3.5rem; color: var(--muted); font-size: 0.83rem; }
 
 @media print {
 
-  @page { size: A4 portrait; margin: 16mm 15mm 14mm; }
+  /* margin: 0 on the page, real margins as body padding.
+     This survives a browser print dialog set to "None" or "Minimum", which
+     silently overrides an @page margin and is why the PDF came out edge to edge. */
+  @page { size: A4 portrait; margin: 0; }
 
   html, body { background: #fff !important; color: #1a1a1a !important; }
 
   body {
-    font: 400 9.4pt/1.42 var(--serif);
+    font: 400 9.3pt/1.4 var(--serif);
     font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    padding: 17mm 21mm 15mm;      /* the actual page margins */
+    width: 210mm;
   }
 
   .wrap { max-width: none; width: auto; padding: 0; margin: 0; }
 
-  /* nothing interactive, nothing decorative, no projects */
+  /* nothing interactive, nothing decorative, no long prose */
   .toolbar,
   .screen-only,
-  #projects,
   #interests { display: none !important; }
 
   .print-only { display: inline; }
 
-  /* reorder: experience before education before skills */
+  /* reorder: experience leads, then projects, then education, then skills */
   main { display: flex; flex-direction: column; }
   #about      { order: 1; }
   #experience { order: 2; }
-  #education  { order: 3; }
-  #skills     { order: 4; }
+  #projects   { order: 3; }
+  #education  { order: 4; }
+  #skills     { order: 5; }
 
   /* ---- header ---- */
   .hero {
@@ -264,6 +269,48 @@ footer { padding: 2.2rem 0 3.5rem; color: var(--muted); font-size: 0.83rem; }
   .entry:first-of-type { border-top: 0; padding-top: 1pt; }
   .entry .org { font-size: 8.2pt; color: #666; margin-top: 0.5pt; }
   .entry p { font-size: 8.8pt; color: #333; margin-top: 2.5pt; }
+
+  /* ---- projects on paper: title, goal, result. No prose, no stack. ---- */
+
+  .project {
+    padding: 3.5pt 0;
+    border-top: 0.35pt solid #e6e6e6;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .project:first-of-type { border-top: 0; padding-top: 1pt; }
+  .project h3 { font-size: 9.2pt; }
+  .project h3 a { color: #111; }
+
+  /* the long descriptive paragraph and the stack row are screen only */
+  .project > p:not(.goal):not(.metric) { display: none !important; }
+
+  /* IBM-UniPD already has an Experience entry; do not print it twice */
+  #projects .project:last-of-type { display: none !important; }
+
+  .goal, .metric {
+    display: block;
+    font-family: var(--serif);
+    font-size: 8.7pt;
+    line-height: 1.34;
+    margin-top: 1.5pt;
+    text-indent: -3.9rem;
+    padding-left: 3.9rem;
+  }
+  .goal { color: #444; }
+  .metric { color: #333; }
+
+  .goal span, .metric span {
+    display: inline-block;
+    min-width: 3.9rem;
+    font-family: var(--mono);
+    font-size: 6.8pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-indent: 0;
+  }
+  .goal span { color: #888; }
+  .metric span { color: #9a7c14; }
 
   .skillgrid { grid-template-columns: 1fr 1fr; gap: 4pt 14pt; }
   .skillgrid h3 { font-size: 8.4pt; color: #9a7c14; margin-bottom: 0.5pt; }
