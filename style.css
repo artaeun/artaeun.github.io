@@ -121,17 +121,6 @@ h2::before {
   font-weight: 400;
 }
 
-h2::after {
-  content: "";
-  flex: 1;
-  height: 6px;
-  background: repeating-linear-gradient(
-      135deg,
-      var(--gold-dim) 0 5px,
-      transparent 5px 11px);
-  opacity: 0.55;
-}
-
 h3 { font-size: 1.1rem; font-weight: 600; letter-spacing: 0.005em; }
 
 p + p { margin-top: 0.8rem; }
