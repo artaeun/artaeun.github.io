@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alexandru Mihailescu</title>
+<meta name="description" content="Applied ML engineer. Computer vision, reinforcement learning, embedded systems. MSc Automation Engineering, University of Padua.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+
+<nav class="toolbar screen-only">
+  <a href="index.html" class="on">EN</a>
+  <a href="it.html">IT</a>
+  <button onclick="window.print()">Download CV</button>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Alexandru Mihailescu</h1>
+    <p class="role">Applied ML Engineer</p>
+    <p class="sub">Computer vision, reinforcement learning, and embedded systems. I build models, and I build the hardware they run on.</p>
+
+    <ul class="contact">
+      <li><a href="mailto:artaeun@gmail.com">artaeun@gmail.com</a></li>
+      <li class="print-only phone">+39 340 519 2139</li>
+      <li>Tombolo (PD), Veneto, Italy</li>
+      <li><a href="https://github.com/artaeun">github.com/artaeun</a></li>
+      <li class="screen-only"><a href="#" class="linkedin-placeholder">LinkedIn</a></li>
+    </ul>
+
+    <p class="availability"><strong>Available from 1 September.</strong> Open to applied ML, computer vision, embedded AI, and R&amp;D engineering roles. Veneto, Italy, or remote.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="about">
+  <h2>About</h2>
+  <p>I am finishing an MSc in Automation and Computer Engineering at the University of Padua, after a BSc in Biomedical Engineering and an industrial electronics diploma. My work sits where machine learning meets hardware: I train the model, then I design the gearbox, print it, solder the board, and write the firmware that runs underneath.</p>
+  <p>That range is the point. Most people who can tune a CNN have never held a soldering iron, and most people who can weld have never written a loss function. I have shipped both, and the four projects below are the evidence.</p>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <p class="lede screen-only">Each one carries a full technical report as a PDF, the source, and the numbers behind every claim.</p>
+
+  <article class="project">
+    <h3><a href="https://github.com/artaeun/fine-grained-car-classification">Fine-Grained Car Make Classification</a></h3>
+    <p class="metric">87.55% top-1 on CompCars, 4.65 points over the OverFeat baseline</p>
+    <p>Five CNN architectures compared on 30,955 images across 75 makes and 431 models, from a CNN trained from scratch through ResNet50, EfficientNet-B0, and a Squeeze-and-Excitation variant, up to a hierarchical multi-task model with a shared backbone and dual heads. The auxiliary model-recognition task acts as a regularizer on the make head. EfficientNet-B0 reaches 844 images per second against ResNet50's 411, at a sixth of the parameters.</p>
+    <p class="stack">PyTorch, torchvision, CUDA, transfer learning, attention, multi-task learning</p>
+  </article>
+
+  <article class="project">
+    <h3><a href="https://github.com/artaeun/weather-classification-svm">Weather Classification with Engineered Features and SVM</a></h3>
+    <p class="metric">96.04% on MWD, and the descriptor transfers to ACDC at 90.6%</p>
+    <p>No deep learning. Hand-engineered colour and Difference-of-Gaussian descriptors, 1562 dimensions reduced to 200 by PCA, and a GridSearch-tuned SVM. The interesting part is the cross-dataset study: the same feature design, carried to a differently distributed dataset with the classifier refit, holds up at 90.6%, which quantifies what a colour-specialised descriptor is actually worth off its home turf. The fitted models ship, so the classifier runs without downloading anything.</p>
+    <p class="stack">scikit-learn, OpenCV, PCA, SVM, feature engineering</p>
+  </article>
+
+  <article class="project">
+    <h3><a href="https://github.com/artaeun/deep-rl-snake">Deep Reinforcement Learning for Snake</a></h3>
+    <p class="metric">196% over the heuristic baseline, and the blind agent beats the sighted one</p>
+    <p>PPO agents on a custom Gymnasium environment, compared under full and partial observability and across three reward designs. The agent restricted to a 5x5 window around its own head outperformed the agent that could see the whole board, and it is the only one that ever completes a board. The step-penalty variant is a clean demonstration of reward hacking: integrated over the horizon, the penalty exceeded two fruit rewards, so dying immediately became optimal, and that is exactly what the agent learned.</p>
+    <p class="stack">PyTorch, Stable-Baselines3, Gymnasium, PPO, reward shaping, CUDA</p>
+  </article>
+
+  <article class="project">
+    <h3><a href="https://github.com/artaeun/sunflower-solar-tracker">Sunflower: a Two-Axis Solar Tracker</a></h3>
+    <p class="metric">Built from scratch, from the gear teeth to the control law</p>
+    <p>A solar-tracking robot made almost entirely from parts already in storage. Printed body and spur gearbox designed in Fusion and OpenSCAD, custom electronics around an Arduino Nano and an L298N H-bridge, and a closed-loop controller that climbs the gradient of measured luminosity, because the sensor has no fixed setpoint to regulate against and a PID has nothing to hold. The first gearbox stalled the motors and the analogue front end failed under soldering. Both failures are in the report, with what they forced.</p>
+    <p class="stack">Arduino, C++, control theory, Autodesk Fusion, OpenSCAD, FDM, sensor calibration</p>
+  </article>
+
+  <article class="project">
+    <h3><a href="https://github.com/artaeun/IBM-UniPD">IBM-UniPD</a></h3>
+    <p class="metric">42 stars, 7 forks, six years of maintenance, still in use</p>
+    <p>A resource repository for Ingegneria Biomedica at the University of Padua: guides, exam dates, past papers, deadlines. Built while I was Student Representative, alongside a Discord server for the course. Both are still running and students still use them, years after I stopped being obliged to care.</p>
+    <p class="stack">Community maintenance, documentation, MATLAB</p>
+  </article>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+
+  <div class="skillgrid">
+    <div>
+      <h3>Machine learning</h3>
+      <p>PyTorch, scikit-learn, OpenCV, NumPy, pandas, Stable-Baselines3, CUDA. Computer vision, reinforcement learning, transfer learning, attention mechanisms, multi-task learning, continual learning, vision-language models (CLIP), energy-based models and associative memory (Hopfield networks), feature engineering, PCA, SVM, experimental design.</p>
+    </div>
+    <div>
+      <h3>Engineering and hardware</h3>
+      <p>Embedded C and C++, Arduino, control systems, digital control, state estimation and filtering, signal processing, sensor calibration. Autodesk Fusion, OpenSCAD, FDM design for manufacturability, custom Marlin firmware. TIG and laser welding, electrical and thermal testing.</p>
+    </div>
+    <div>
+      <h3>Infrastructure</h3>
+      <p>Linux, Bash, Git, Docker, Apptainer, SLURM and HPC job orchestration, Weights &amp; Biases, uv, LaTeX. Reproducibility practice: controlled ablations, containerised environments, documented run artefacts.</p>
+    </div>
+    <div>
+      <h3>Languages</h3>
+      <p>Python, C, C++, MATLAB, Bash, JavaScript, LaTeX. Italian (native), English (C2).</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+
+  <article class="entry">
+    <h3>Private Tutor <span class="org">Self-employed</span></h3>
+    <p>Mathematics, physics, chemistry, computer science, and applied sciences, to secondary-school students preparing for technical and scientific diplomas. Eight years, a client base built entirely on referral. Explaining hard material to people who are not obliged to understand it is the closest thing to technical writing that pays.</p>
+  </article>
+
+  <article class="entry">
+    <h3>Student Representative and Community Maintainer <span class="org">Ingegneria Biomedica, University of Padua</span></h3>
+    <p>Elected representative for the degree course. Built and still maintain the course resource repository (42 stars, 7 forks) and the student Discord server, both of which are still in daily use six years on.</p>
+  </article>
+
+  <article class="entry">
+    <h3>Earlier experience</h3>
+    <p><strong>Production technician, industrial heating elements</strong> (R.I.C.A., division of I.r.c.a. S.p.A.). The full production cycle: automated and manual tube cutting, assembly, filling, hammering, grinding, TIG and laser welding, sandblasting, and final electrical and thermal testing against documented pass criteria.</p>
+    <p><strong>IT technician and web generalist</strong>, freelance. Component-level hardware repair, system assembly and benchmarking, OS and network configuration. Site building and theming for private clients, frontend implementation, and graphic and video work.</p>
+    <p><strong>Civil service volunteer</strong> (Caritas). Database maintenance, educational video production, on-site IT support, and language and integration support for refugees in the diocesan programme.</p>
+  </article>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+
+  <article class="entry">
+    <h3>MSc, Automation and Computer Engineering <span class="org">University of Padua, DEI</span></h3>
+    <p><strong>Graduating in the autumn session. Available from 1 September.</strong></p>
+    <p>Coursework: Computer Vision (30 cum laude), Reinforcement Learning, Neural Networks and Deep Learning, Machine Learning, Robotics and Control, Control Engineering Laboratory, Digital Control, Estimation and Filtering, Modelling and Control of Electric Drives, Convex Optimization, Systems Theory.</p>
+    <p>Thesis in applied machine learning research: representation geometry and topological constraints in neural networks, on HPC infrastructure.</p>
+  </article>
+
+  <article class="entry">
+    <h3>BSc, Biomedical Engineering <span class="org">University of Padua, DEI</span></h3>
+    <p>Signal processing, sensors, and applied physics. It is why I am drawn to systems that touch the physical world.</p>
+  </article>
+
+  <article class="entry">
+    <h3>Technical Diploma, Industrial Electronics and Telecommunications <span class="org">ITIS Galileo Galilei, Conegliano</span></h3>
+  </article>
+</section>
+
+<section id="interests" class="screen-only">
+  <h2>Interests</h2>
+  <p>I rebuilt a Creality Ender 3 into something considerably better than it was: hardware upgrades, a custom Marlin firmware build flashed over UART, and a slicer profile tuned for functional PETG parts at tight tolerances. That machine is why the Sunflower gearbox exists at all, and it is where most of my design-for-manufacturability instinct came from.</p>
+  <p>Otherwise: Factorio and Satisfactory, which are throughput and bottleneck optimisation wearing a hat. Piano, badly and improving. Drawing, for no reason at all.</p>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <p class="screen-only">Built by hand. Source at <a href="https://github.com/artaeun/artaeun.github.io">github.com/artaeun/artaeun.github.io</a>.</p>
+  <p class="print-only">artaeun@gmail.com &nbsp;&middot;&nbsp; +39 340 519 2139 &nbsp;&middot;&nbsp; github.com/artaeun</p>
+</footer>
+
+</body>
+</html>
