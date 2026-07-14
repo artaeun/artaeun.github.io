@@ -188,7 +188,25 @@ p + p { margin-top: 0.8rem; }
 
 .entry { padding: 1.2rem 0; border-top: 1px solid var(--rule); }
 .entry:first-of-type { border-top: 0; padding-top: 0; }
-.entry .org { display: block; font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-top: 0.15rem; }
+
+.entry h3 {
+  background-image: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--gold);
+}
+
+/* the organisation stays muted; it must not inherit the clipped fill */
+.entry .org {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-top: 0.15rem;
+  -webkit-text-fill-color: var(--muted);
+  color: var(--muted);
+}
+
 .entry p { font-size: 0.95rem; margin-top: 0.5rem; }
 
 /* ---------- toolbar ---------- */
@@ -243,7 +261,7 @@ footer { padding: 2rem 0 3.5rem; color: var(--muted); font-size: 0.83rem; }
   .print-only { display: inline; }
 
   /* no gradients on paper: they print as mud */
-  strong, .role, h2, .metric, .skillgrid h3 {
+  strong, .role, h2, .metric, .skillgrid h3, .entry h3, .entry .org {
     background: none !important;
     -webkit-text-fill-color: currentColor !important;
     background-clip: border-box !important;
@@ -326,8 +344,12 @@ footer { padding: 2rem 0 3.5rem; color: var(--muted); font-size: 0.83rem; }
     break-inside: avoid;
   }
   .entry:first-of-type { border-top: 0; padding-top: 1pt; }
-  .entry .org { font-size: 8.4pt; color: #666; margin-top: 0.5pt; }
+  .entry h3 { color: #8a6d12 !important; }
+  .entry .org { font-size: 8.4pt; color: #666 !important; margin-top: 0.5pt; }
   .entry p { font-size: 8.9pt; color: #333; margin-top: 2.5pt; }
+  .entry p strong { color: #8a6d12 !important; }
+
+  .project h3, .project h3 a { color: #8a6d12 !important; }
 
   /* ---- projects on paper: title, goal, result. No prose, no stack. ---- */
   .project {
