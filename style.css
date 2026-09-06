@@ -1,0 +1,454 @@
+﻿:root {
+  --ink: #0b0b0d;
+  --ink-2: #131318;
+  --text: #efece5;
+  --muted: #8b8b93;
+
+  --gold: #c9a227;
+  --gold-lit: #f0d478;
+  --gold-dim: #7d6720;
+  --grad: linear-gradient(62deg, #f5dc8a 0%, #c9a227 55%, #a97f1c 100%);
+  --grad-cool: linear-gradient(62deg, #f0d478 0%, #c9a227 60%, #8d6f34 100%);
+
+  --rule: #23232a;
+
+  --serif: "Charter", "Bitstream Charter", Constantia, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+
+  --page: 62rem;
+  --gutter: 1.6rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--ink);
+  color: var(--text);
+  font: 400 16.5px/1.6 var(--serif);
+  font-feature-settings: "kern" 1, "liga" 1, "lnum" 1;
+  font-variant-numeric: lining-nums;
+}
+
+.wrap { width: 100%; max-width: var(--page); margin: 0 auto; padding: 0 var(--gutter); }
+
+a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-dim); }
+a:hover { color: var(--gold-lit); border-bottom-color: var(--gold-lit); }
+
+/* Obsidianite move: bold text is a gradient, clipped to the glyphs. */
+strong {
+  background-image: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ---------- hero ---------- */
+
+.hero { padding: 4.5rem 0 2.4rem; background: linear-gradient(180deg, var(--ink-2), var(--ink)); }
+
+h1 { font-size: clamp(2rem, 5.5vw, 2.9rem); font-weight: 400; letter-spacing: 0.01em; line-height: 1.08; }
+
+.role {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin: 0.85rem 0 0;
+  padding-top: 0.85rem;
+  border-top: 2px solid var(--gold);
+  display: inline-block;
+  background-image: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sub { color: var(--muted); margin-top: 0.9rem; }
+
+.contact {
+  list-style: none;
+  display: flex; flex-wrap: wrap;
+  gap: 0.3rem 1.3rem;
+  margin-top: 1.4rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.availability {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1rem;
+  border-left: 3px solid var(--gold);
+  background: rgba(201, 162, 39, 0.06);
+  font-size: 0.93rem;
+}
+
+/* ---------- sections: the worksite rule ---------- */
+
+/* Reading order on screen. The markup order is the printed order, so the two are
+   set independently. */
+main { display: flex; flex-direction: column; }
+#about     { order: 1; }
+#education { order: 2; }
+#projects  { order: 3; }
+#skills    { order: 4; }
+#interests { order: 5; }
+
+section { padding: 2.6rem 0 2.9rem; }
+
+main section, footer { border-top: 1px solid var(--rule); }
+#about { border-top: 0; }
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: var(--mono);
+  font-size: 1.28rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.7rem;
+  background-image: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2::before {
+  content: "///";
+  -webkit-text-fill-color: var(--gold-dim);
+  letter-spacing: -0.05em;
+  font-weight: 400;
+}
+
+/* the hazard rule running out from the heading */
+h2::after {
+  content: "";
+  flex: 1;
+  height: 6px;
+  background: repeating-linear-gradient(
+      135deg,
+      var(--gold-dim) 0 5px,
+      transparent 5px 11px);
+  opacity: 0.55;
+}
+
+h3 { font-size: 1.1rem; font-weight: 600; letter-spacing: 0.005em; }
+
+p + p { margin-top: 0.8rem; }
+.lede { color: var(--muted); margin-bottom: 1.8rem; }
+
+/* ---------- projects ---------- */
+
+.project { padding: 1.5rem 0; border-top: 1px solid var(--rule); }
+.project:first-of-type { border-top: 0; padding-top: 0; }
+
+/* project titles carry the gradient, same as every other h3 on the page */
+.project h3 a {
+  border: 0;
+  background-image: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--gold);
+}
+.project h3 a:hover {
+  background-image: none;
+  -webkit-text-fill-color: var(--gold-lit);
+  color: var(--gold-lit);
+}
+
+.goal, .metric { font-family: var(--mono); font-size: 0.82rem; line-height: 1.5; margin-top: 0.5rem; }
+.goal { color: var(--muted); }
+.metric { color: var(--gold); }
+
+.goal span, .metric span {
+  display: inline-block;
+  min-width: 4.6rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.metric span { color: var(--gold-dim); }
+
+.project > p:not(.goal):not(.metric):not(.stack) { margin-top: 0.85rem; }
+
+.stack { margin-top: 0.7rem; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.03em; }
+
+/* ---------- skills ---------- */
+
+.skillgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.8rem; }
+.skillgrid h3 {
+  font-size: 0.88rem;
+  font-family: var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  background-image: var(--grad-cool);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.skillgrid p { font-size: 0.92rem; color: var(--muted); }
+
+/* ---------- entries ---------- */
+
+.entry { padding: 1.2rem 0; border-top: 1px solid var(--rule); }
+.entry:first-of-type { border-top: 0; padding-top: 0; }
+
+.entry h3 {
+  background-image: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--gold);
+}
+
+/* the organisation stays muted; it must not inherit the clipped fill */
+.entry .org {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-top: 0.15rem;
+  -webkit-text-fill-color: var(--muted);
+  color: var(--muted);
+}
+
+.entry p { font-size: 0.95rem; margin-top: 0.5rem; }
+
+/* ---------- toolbar ---------- */
+
+.toolbar { position: fixed; top: 1rem; right: 1rem; z-index: 10; display: flex; gap: 0.45rem; }
+.toolbar a, .toolbar button {
+  font-family: var(--mono);
+  font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); background: var(--ink-2);
+  border: 1px solid var(--rule); border-radius: 2px;
+  padding: 0.42rem 0.65rem; cursor: pointer;
+}
+.toolbar a:hover, .toolbar button:hover { color: var(--gold); border-color: var(--gold); }
+.toolbar a.on { color: var(--gold); border-color: var(--gold); }
+
+footer { padding: 2rem 0 3.5rem; color: var(--muted); font-size: 0.83rem; }
+
+.colophon a { color: var(--muted); border-bottom-color: var(--rule); }
+.colophon a:hover { color: var(--gold-lit); border-bottom-color: var(--gold-lit); }
+
+.print-only { display: none; }
+
+@media (max-width: 46rem) {
+  body { font-size: 16px; }
+  .hero { padding: 3.2rem 0 2rem; }
+  .toolbar { position: static; justify-content: flex-end; padding: 1rem 1.4rem 0; }
+  h2 { font-size: 1.1rem; }
+  .goal span, .metric span { display: block; min-width: 0; margin-bottom: 0.1rem; }
+}
+
+/* ======================================================================
+   PRINT. Its own template. None of the above decoration survives.
+   ====================================================================== */
+
+@media print {
+
+  /* @page margin is zero and the real margins are body padding, so a print
+     dialog set to None or Minimum cannot flatten them. */
+  @page { size: A4 portrait; margin: 0; }
+
+  html, body { background: #fff !important; color: #1a1a1a !important; }
+
+  body {
+    font: 400 9.4pt/1.46 var(--serif);
+    font-feature-settings: "kern" 1, "liga" 1, "lnum" 1;
+    font-variant-numeric: lining-nums;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    width: 210mm;
+    padding: 12mm 14mm 8mm;
+  }
+
+  .wrap { max-width: none; width: auto; padding: 0; margin: 0; }
+
+  /* the tagline repeats the opening sentence of the profile, and the footer only
+     repeated the header contact line */
+  /* the printed sheet drops what the covering email and the website already carry:
+     the tagline (it repeats the profile), the availability note, the coursework list */
+  .toolbar, .screen-only, #interests, footer, .sub, .availability { display: none !important; }
+  .print-only { display: inline; }
+
+  /* no gradients on paper: they print as mud */
+  strong, .role, h2, .metric, .skillgrid h3, .entry h3, .entry .org, .project h3 a {
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+    background-clip: border-box !important;
+  }
+
+  /* One column, in document order. A printed sheet fragments predictably this way;
+     a grid container does not. */
+  main { display: block; }
+  section { display: block; padding: 10pt 0 0; }
+  main section { border-top: 0 !important; }
+  main section:first-of-type { padding-top: 0; }
+
+  .skillgrid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 7mm; row-gap: 3pt; }
+  .skillgrid > div { break-inside: avoid; }
+
+
+  /* ---- header ---- */
+  .hero {
+    background: none !important;
+    border: 0;
+    border-bottom: 1.6pt solid #9a7c14;
+    padding: 0 0 8pt;
+    margin-bottom: 0;
+  }
+  h1 { font-size: 21pt; letter-spacing: 0.02em; color: #111; }
+  .role {
+    border-top: 0; padding: 0; margin: 2.5pt 0 0;
+    font-size: 8pt; letter-spacing: 0.18em; font-weight: 600;
+    color: #9a7c14 !important;
+  }
+  .sub { margin-top: 3.5pt; font-size: 9.2pt; color: #444; }
+
+  /* contact: serif, not mono. Mono was stretching the phone digits apart. */
+  .contact {
+    margin-top: 5pt;
+    gap: 2pt 18pt;
+    font-family: var(--serif);
+    font-size: 9pt;
+    letter-spacing: 0;
+    color: #333;
+  }
+  .contact li { white-space: nowrap; }
+  .contact a { color: #333; border: 0; }
+
+  .availability {
+    margin-top: 7pt; padding: 4pt 7pt; font-size: 8.6pt;
+    background: #faf6ea !important;
+    border-left: 2pt solid #9a7c14;
+    break-inside: avoid;
+  }
+  .availability strong { color: #8a6d12 !important; }
+
+  /* ---- sections ---- */
+  section {
+    padding: 6pt 0 0;
+    border: 0 !important;
+    border-image: none !important;
+  }
+
+  h2 {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10.5pt;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #9a7c14 !important;
+    margin: 0 0 3.5pt;
+    padding-bottom: 1.5pt;
+    border-bottom: 0.6pt solid #d8cba4;
+  }
+  h2::before, h2::after { content: none !important; }
+  h2 { text-transform: uppercase; }
+  .role { font-family: var(--mono); font-style: normal; text-transform: uppercase; }
+  .availability { color: #333 !important; }
+  .entry .org { font-family: var(--serif) !important; letter-spacing: 0 !important; }
+
+  h3 { font-size: 9.3pt; color: #111; }
+
+  #about p { font-size: 9.1pt; color: #333; }
+  #about p + p { margin-top: 3pt; }
+
+  /* ---- experience ---- */
+  .entry {
+    padding: 5.5pt 0;
+    border-top: 0.35pt solid #e6e6e6;
+    break-inside: avoid;
+  }
+  .entry:first-of-type { border-top: 0; padding-top: 1pt; }
+  .entry h3 { color: #8a6d12 !important; font-size: 9.3pt; line-height: 1.25; }
+  .entry .org { font-size: 8.4pt; color: #666 !important; margin-top: 0.5pt; }
+  .entry p { font-size: 8.2pt; color: #333; margin-top: 2.5pt; line-height: 1.36; }
+  .entry p strong { color: #8a6d12 !important; }
+
+  .project h3, .project h3 a { color: #8a6d12 !important; }
+
+  /* ---- projects on paper: title, goal, result. No prose, no stack. ---- */
+  .project {
+    padding: 5.5pt 0;
+    border-top: 0.35pt solid #e6e6e6;
+    break-inside: avoid;
+  }
+  .project:first-of-type { border-top: 0; padding-top: 1pt; }
+  .project h3 { font-size: 9pt; }
+  .project h3 a { color: #111; }
+
+  .project > p:not(.goal):not(.metric) { display: none !important; }
+
+  /* IBM-UniPD has its own Experience entry; do not print it twice */
+  #projects .project:last-of-type { display: none !important; }
+
+  .goal, .metric {
+    display: block;
+    font-family: var(--serif);
+    font-size: 8.5pt;
+    line-height: 1.33;
+    margin-top: 1.6pt;
+    text-indent: -3.2rem;
+    padding-left: 3.2rem;
+    color: #333 !important;
+  }
+  .goal { color: #555 !important; }
+
+  .goal span, .metric span {
+    display: inline-block;
+    min-width: 3.2rem;
+    font-family: var(--mono);
+    font-size: 6.8pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-indent: 0;
+    -webkit-text-fill-color: currentColor !important;
+  }
+  .goal span { color: #999 !important; }
+  .metric span { color: #9a7c14 !important; }
+
+  /* ---- skills ---- */
+  .skillgrid { display: block; }
+  .skillgrid > div { margin-top: 2pt; }
+  .skillgrid > div:first-child { margin-top: 0; }
+  .skillgrid h3 {
+    display: inline;
+    font-size: 7.4pt;
+    font-family: var(--mono);
+    letter-spacing: 0.09em;
+    color: #9a7c14 !important;
+    margin: 0;
+  }
+  .skillgrid h3::after { content: "\00a0\00a0"; }
+  .skillgrid p { display: inline; font-size: 8.3pt; color: #333; line-height: 1.32; }
+
+  footer {
+    padding: 3pt 0 0;
+    margin-top: 3.5pt;
+    border: 0 !important;
+    border-top: 0.4pt solid #ddd !important;
+    border-image: none !important;
+    font-size: 7.6pt;
+    color: #555;
+  }
+
+  a { color: #1a1a1a; border: 0; }
+
+  /* full-measure run-in rows: a grid row cannot split across a page, a block can */
+  .skillgrid { display: block; }
+  .skillgrid > div { margin-top: 5pt; }
+  .skillgrid > div:first-child { margin-top: 0; }
+  .skillgrid h3 { display: inline; font-size: 7pt; letter-spacing: 0.1em; }
+  .skillgrid h3::after { content: "\00a0\00a0"; }
+  .skillgrid p { display: inline; font-size: 9pt; line-height: 1.44; }
+}
