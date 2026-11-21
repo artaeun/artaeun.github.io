@@ -38,12 +38,12 @@
 
 <section id="about">
     <h2>About</h2>
-    <p>Engineer and data scientist building deep-learning, reinforcement-learning and machine-learning neural networks, including hardware platforms. I am currently researching Hopfield networks, examining the coupled dynamics of neural activity and synaptic changes in associative-memory systems.</p>
+    <p>Engineer and data scientist. I build deep-learning, reinforcement-learning and machine-learning models, including for hardware platforms. I am currently researching Hopfield networks, where I study the coupled dynamics of neural activity and synaptic changes in associative-memory systems.</p>
   </section>
 
 <section id="projects">
     <h2>Projects</h2>
-    <p class="lede screen-only">Each one carries a full technical report as a PDF, the source, and the numbers behind every claim.</p>
+    <p class="lede screen-only">Each project has a full technical report as a PDF, the source, and the numbers that support each claim.</p>
 
     <article class="project">
       <h3><a href="https://github.com/artaeun/fine-grained-car-classification">Fine-Grained Car Make Classification</a></h3>
@@ -57,15 +57,15 @@
       <h3><a href="https://github.com/artaeun/weather-classification-svm">Weather Classification with Engineered Features and SVM</a></h3>
       <p class="goal"><span>Goal</span> Classify weather from a photo without deep learning, then find out how far the feature design travels.</p>
       <p class="metric"><span>Result</span> 96.04% on MWD, and the same descriptor holds at 90.6% on a differently distributed dataset.</p>
-      <p>No deep learning. Hand-engineered colour and Difference-of-Gaussian descriptors, 1562 dimensions reduced to 200 by PCA, and a GridSearch-tuned SVM. The interesting part is the cross-dataset study: the same feature design, carried to a differently distributed dataset with the classifier refit, holds up at 90.6%, which quantifies what a colour-specialised descriptor is actually worth off its home turf. The fitted models ship, so the classifier runs without downloading anything.</p>
+      <p>The pipeline is fully classical: hand-engineered colour and Difference-of-Gaussian descriptors, 1562 dimensions reduced to 200 by PCA, and a GridSearch-tuned SVM. In the cross-dataset study the same feature design, carried to a differently distributed dataset with the classifier refit, holds up at 90.6%. That number says how far a colour-specialised descriptor carries outside the dataset it was designed on. The fitted models ship, so the classifier runs without downloading anything.</p>
       <p class="stack">scikit-learn, OpenCV, PCA, SVM, feature engineering</p>
     </article>
 
     <article class="project">
       <h3><a href="https://github.com/artaeun/deep-rl-snake">Deep Reinforcement Learning for Snake</a></h3>
-      <p class="goal"><span>Goal</span> Learn Snake from sparse rewards, and measure what observability and reward design are actually worth.</p>
+      <p class="goal"><span>Goal</span> Learn Snake from sparse rewards, and measure how much observability and reward design change the result.</p>
       <p class="metric"><span>Result</span> 196% over the heuristic baseline, and the agent that sees less plays better than the one that sees everything.</p>
-      <p>PPO agents on a custom Gymnasium environment, compared under full and partial observability and across three reward designs. The agent restricted to a 5x5 window around its own head outperformed the agent that could see the whole board, and it is the only one that ever completes a board. The step-penalty variant is a clean demonstration of reward hacking: integrated over the horizon, the penalty exceeded two fruit rewards, so dying immediately became optimal, and that is exactly what the agent learned.</p>
+      <p>PPO agents on a custom Gymnasium environment, compared under full and partial observability and across three reward designs. The agent restricted to a 5x5 window around its own head outperformed the agent that could see the whole board, and it is the only one that ever completes a board. The step-penalty variant shows reward hacking: integrated over the horizon, the penalty exceeded two fruit rewards, so dying immediately became optimal, and the agent learned to do it.</p>
       <p class="stack">PyTorch, Stable-Baselines3, Gymnasium, PPO, reward shaping, CUDA</p>
     </article>
 
@@ -73,7 +73,7 @@
       <h3><a href="https://github.com/artaeun/sunflower-solar-tracker">Sunflower: a Two-Axis Solar Tracker</a></h3>
       <p class="goal"><span>Goal</span> Point a solar array at the brightest light in the room, using a sensor with no fixed reference to regulate against.</p>
       <p class="metric"><span>Result</span> A working two-axis tracker, built from the gear teeth to the control law, from parts already in storage.</p>
-      <p>A solar-tracking robot made almost entirely from parts already in storage. Printed body and spur gearbox designed in Fusion and OpenSCAD, custom electronics around an Arduino Nano and an L298N H-bridge, and a closed-loop controller that climbs the gradient of measured luminosity, because the sensor has no fixed setpoint to regulate against and a PID has nothing to hold. The first gearbox stalled the motors and the analogue front end failed under soldering. Both failures are in the report, with what they forced.</p>
+      <p>A solar-tracking robot made almost entirely from parts already in storage. Printed body and spur gearbox designed in Fusion and OpenSCAD, custom electronics around an Arduino Nano and an L298N H-bridge, and a closed-loop controller that climbs the gradient of measured luminosity, because the sensor has no fixed setpoint to regulate against and a PID has nothing to hold. The first gearbox stalled the motors and the analogue front end failed under soldering. The report covers both failures and the design changes each one forced.</p>
       <p class="stack">Arduino, C++, control theory, Autodesk Fusion, OpenSCAD, FDM, sensor calibration</p>
     </article>
 
