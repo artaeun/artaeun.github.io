@@ -38,7 +38,7 @@
 
 <section id="about">
     <h2>About</h2>
-    <p>Automation engineer with an MSc from the University of Padua. I train and evaluate vision models in PyTorch and OpenCV, and I designed and built a two-axis solar tracker: the printed gearbox, the wiring and the Arduino firmware. I am looking for a permanent role in machine vision, machine learning, control or embedded software, in the Padova area or remote.</p>
+    <p>Automation engineer with an MSc from the University of Padua. I train and evaluate vision models in PyTorch and OpenCV. I also designed and built a two-axis solar tracker, including the printed gearbox, the wiring and the Arduino firmware. I am looking for a permanent role in machine vision, machine learning, control or embedded software, in the Padova area or remote.</p>
   </section>
 
 <section id="education">
@@ -91,15 +91,15 @@
     <article class="project">
       <h3><a href="https://github.com/artaeun/sunflower-solar-tracker">Sunflower: a Two-Axis Solar Tracker</a></h3>
       <p class="goal"><span>Goal</span> Point a solar array at the brightest light in the room, using a sensor with no fixed reference to regulate against.</p>
-      <p class="metric"><span>Result</span> A working two-axis tracker: I designed the gears, the body and the control law, and built it from parts I already had.</p>
-      <p>A solar-tracking robot made almost entirely from parts already in storage. Printed body and spur gearbox designed in Fusion and OpenSCAD, electronics around an Arduino Nano and an L298N H-bridge, and a closed-loop hill-climbing search on the measured luminosity, because the sensor has no fixed setpoint to regulate against and a PID has nothing to hold. The first gearbox stalled the motors and the analogue front end failed under soldering. The report covers both failures and the design changes each one forced.</p>
+      <p class="metric"><span>Result</span> A working two-axis tracker built from parts I already had. I designed the gears, the body and the control law.</p>
+      <p>A solar-tracking robot made almost entirely from parts already in storage. I designed the printed body and the spur gearbox in Fusion and OpenSCAD, and built the electronics around an Arduino Nano and an L298N H-bridge. The controller is a closed-loop hill-climbing search on the measured luminosity. I chose it because the sensor has no fixed setpoint for a PID to regulate against. The first gearbox stalled the motors and the analogue front end failed under soldering. The report describes both failures and what I changed in the design after each one.</p>
       <p class="stack">Arduino, C++, control theory, Autodesk Fusion, OpenSCAD, FDM, sensor calibration</p>
     </article>
 
     <article class="project">
       <h3><a href="https://github.com/artaeun/IBM-UniPD">IBM-UniPD</a></h3>
       <p class="goal"><span>Goal</span> Give a degree course one place to find its guides, exam dates, past papers and deadlines.</p>
-      <p class="metric"><span>Result</span> 55 stars, 8 forks, and six years of maintenance. Students still use it.</p>
+      <p class="metric"><span>Result</span> 55 stars and 8 forks, maintained for six years and still used by students.</p>
       <p>A resource repository for Ingegneria Biomedica at the University of Padua: guides, exam dates, past papers, deadlines. Built while I was Student Representative, alongside a Discord server for the course. Both are still running and students still use them, years after my term ended.</p>
       <p class="stack">Community maintenance, documentation, MATLAB</p>
     </article>
