@@ -19,8 +19,8 @@
 <header class="hero">
   <div class="wrap">
     <h1>Alexandru Mihailescu</h1>
-    <p class="role">Machine Learning Engineer</p>
-    <p class="sub">Neural networks, computer vision and reinforcement learning, on a foundation of control and embedded systems.</p>
+    <p class="role">Machine Learning and Automation Engineer</p>
+    <p class="sub">Neural networks, computer vision and reinforcement learning, with a background in control and embedded systems.</p>
 
     <ul class="contact">
       <li><a href="mailto:artaeun@gmail.com">artaeun@gmail.com</a></li>
@@ -30,7 +30,7 @@
       <li><a href="https://www.linkedin.com/in/mihailescu-alexandru">linkedin.com/in/mihailescu-alexandru</a></li>
     </ul>
 
-    <p class="availability"><strong>Available for freelance work,</strong> and open to applied ML, computer vision, and R&amp;D roles. Veneto, Italy, or remote.</p>
+    <p class="availability"><strong>Looking for a permanent role</strong> in machine vision, machine learning, control or embedded software, in the Padova area or remote.</p>
   </div>
 </header>
 
@@ -38,7 +38,7 @@
 
 <section id="about">
     <h2>About</h2>
-    <p>Engineer and data scientist. I build deep-learning, reinforcement-learning and machine-learning models, including for hardware platforms. My MSc thesis is on Hopfield networks and studies the coupled dynamics of neural activity and synaptic changes in associative-memory systems.</p>
+    <p>Automation engineer with an MSc from the University of Padua. I train and evaluate vision models in PyTorch and OpenCV, and I designed and built a two-axis solar tracker: the printed gearbox, the wiring and the Arduino firmware. I am looking for a permanent role in machine vision, machine learning, control or embedded software, in the Padova area or remote.</p>
   </section>
 
 <section id="education">
@@ -83,7 +83,7 @@
     <article class="project">
       <h3><a href="https://github.com/artaeun/deep-rl-snake">Deep Reinforcement Learning for Snake</a></h3>
       <p class="goal"><span>Goal</span> Learn Snake from sparse rewards, and measure how much observability and reward design change the result.</p>
-      <p class="metric"><span>Result</span> 196% over the heuristic baseline, and the agent that sees less plays better than the one that sees everything.</p>
+      <p class="metric"><span>Result</span> 196% higher mean reward than the heuristic baseline, and the agent with a 5x5 view scored above the agent that sees the whole board.</p>
       <p>PPO agents on a custom Gymnasium environment, compared under full and partial observability and across three reward designs. The agent restricted to a 5x5 window around its own head outperformed the agent that could see the whole board, and it is the only one that ever completes a board. The step-penalty variant shows reward hacking: integrated over the horizon, the penalty exceeded two fruit rewards, so dying immediately became optimal, and the agent learned to do it.</p>
       <p class="stack">PyTorch, Stable-Baselines3, Gymnasium, PPO, reward shaping, CUDA</p>
     </article>
@@ -91,15 +91,15 @@
     <article class="project">
       <h3><a href="https://github.com/artaeun/sunflower-solar-tracker">Sunflower: a Two-Axis Solar Tracker</a></h3>
       <p class="goal"><span>Goal</span> Point a solar array at the brightest light in the room, using a sensor with no fixed reference to regulate against.</p>
-      <p class="metric"><span>Result</span> A working two-axis tracker, built from the gear teeth to the control law, from parts already in storage.</p>
-      <p>A solar-tracking robot made almost entirely from parts already in storage. Printed body and spur gearbox designed in Fusion and OpenSCAD, custom electronics around an Arduino Nano and an L298N H-bridge, and a closed-loop controller that climbs the gradient of measured luminosity, because the sensor has no fixed setpoint to regulate against and a PID has nothing to hold. The first gearbox stalled the motors and the analogue front end failed under soldering. The report covers both failures and the design changes each one forced.</p>
+      <p class="metric"><span>Result</span> A working two-axis tracker: I designed the gears, the body and the control law, and built it from parts I already had.</p>
+      <p>A solar-tracking robot made almost entirely from parts already in storage. Printed body and spur gearbox designed in Fusion and OpenSCAD, electronics around an Arduino Nano and an L298N H-bridge, and a closed-loop hill-climbing search on the measured luminosity, because the sensor has no fixed setpoint to regulate against and a PID has nothing to hold. The first gearbox stalled the motors and the analogue front end failed under soldering. The report covers both failures and the design changes each one forced.</p>
       <p class="stack">Arduino, C++, control theory, Autodesk Fusion, OpenSCAD, FDM, sensor calibration</p>
     </article>
 
     <article class="project">
       <h3><a href="https://github.com/artaeun/IBM-UniPD">IBM-UniPD</a></h3>
       <p class="goal"><span>Goal</span> Give a degree course one place to find its guides, exam dates, past papers and deadlines.</p>
-      <p class="metric"><span>Result</span> 42 stars, 7 forks, and six years of maintenance. Students still use it.</p>
+      <p class="metric"><span>Result</span> 55 stars, 8 forks, and six years of maintenance. Students still use it.</p>
       <p>A resource repository for Ingegneria Biomedica at the University of Padua: guides, exam dates, past papers, deadlines. Built while I was Student Representative, alongside a Discord server for the course. Both are still running and students still use them, years after my term ended.</p>
       <p class="stack">Community maintenance, documentation, MATLAB</p>
     </article>
@@ -115,7 +115,7 @@
       </div>
       <div>
         <h3>Engineering and hardware</h3>
-        <p>Embedded C and C++, Arduino, control systems, digital control, state estimation and filtering, signal processing, sensor calibration. Autodesk Fusion, OpenSCAD, FDM design for manufacturability, custom Marlin firmware. TIG and laser welding, electrical and thermal testing.</p>
+        <p>C and C++ on microcontrollers (Arduino Nano, AVR): ADC sampling, PWM motor control through an L298N H-bridge, serial debugging. Control systems, digital control, state estimation and filtering, signal processing, sensor calibration. Autodesk Fusion, OpenSCAD, FDM design for manufacturability, Marlin firmware configured, built and flashed for a modified Ender 3. TIG and laser welding, electrical and thermal testing.</p>
       </div>
       <div>
         <h3>Infrastructure</h3>
