@@ -83,7 +83,7 @@
     <article class="project">
       <h3><a href="https://github.com/artaeun/deep-rl-snake">Deep Reinforcement Learning per Snake</a></h3>
       <p class="goal"><span>Obiettivo</span> Imparare a giocare a Snake con ricompense sparse e misurare l'effetto dell'osservabilità e della progettazione della ricompensa.</p>
-      <p class="metric"><span>Risultato</span> Ricompensa media superiore del 196% alla baseline euristica, e l'agente con una finestra 5x5 ottiene un punteggio più alto di quello che vede l'intera griglia.</p>
+      <p class="metric"><span>Risultato</span> +196% di ricompensa media sulla baseline euristica, e l'agente con finestra 5x5 supera quello che vede tutta la griglia.</p>
       <p>Agenti PPO su un ambiente Gymnasium sviluppato da zero, confrontati in osservabilità completa e parziale e su tre diverse funzioni di ricompensa. L'agente limitato a una finestra 5x5 attorno alla testa del serpente supera quello che osserva l'intera griglia ed è l'unico a riempirla tutta. Nella variante con penalità per passo compare il reward hacking: integrata sull'orizzonte temporale, la penalità supera il valore di due frutti, la policy ottima diventa morire subito e l'agente converge proprio su quella.</p>
       <p class="stack">PyTorch, Stable-Baselines3, Gymnasium, PPO, reward shaping, CUDA</p>
     </article>
@@ -91,7 +91,7 @@
     <article class="project">
       <h3><a href="https://github.com/artaeun/sunflower-solar-tracker">Sunflower: inseguitore solare a due assi</a></h3>
       <p class="goal"><span>Obiettivo</span> Orientare un pannello solare verso la sorgente luminosa più intensa, con un sensore che non fornisce un riferimento fisso per la regolazione.</p>
-      <p class="metric"><span>Risultato</span> Un inseguitore a due assi funzionante: ho progettato ingranaggi, corpo e legge di controllo, e l'ho costruito con componenti che avevo già.</p>
+      <p class="metric"><span>Risultato</span> Un inseguitore a due assi funzionante: ho progettato ingranaggi, corpo e legge di controllo, e l'ho costruito con pezzi già in casa.</p>
       <p>Corpo e riduttore a ingranaggi cilindrici sono progettati in Fusion e OpenSCAD e stampati in 3D. L'elettronica è basata su un Arduino Nano e su un ponte H L298N, e il controllo ad anello chiuso è una ricerca hill-climbing sulla luminosità misurata. Ho scelto questa ricerca perché il sensore non fornisce un riferimento fisso da inseguire, e un PID non avrebbe alcun errore da annullare. Il primo riduttore mandava i motori in stallo e lo stadio analogico si è guastato in fase di saldatura. Entrambi i guasti sono documentati nella relazione, insieme alle modifiche di progetto che hanno reso necessarie.</p>
       <p class="stack">Arduino, C++, teoria del controllo, Autodesk Fusion, OpenSCAD, stampa FDM, calibrazione sensori</p>
     </article>
@@ -127,7 +127,7 @@
       </div>
       <div>
         <h3>Lingue</h3>
-        <p>Italiano, madrelingua. Inglese, C2: ho conseguito la laurea magistrale con un corso tenuto interamente in inglese, e uso l'inglese ogni giorno, scritto e parlato.</p>
+        <p>Italiano, madrelingua. Inglese, C2: laurea magistrale tutta in inglese, e lo uso ogni giorno, scritto e parlato.</p>
       </div>
       </div>
   </section>
