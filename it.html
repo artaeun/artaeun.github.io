@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alexandru Mihailescu</title>
-<meta name="description" content="Ingegnere applicato al machine learning. Computer vision, reinforcement learning, sistemi embedded. Laurea magistrale in Ingegneria dell'Automazione, Università di Padova.">
+<meta name="description" content="Machine Learning and Automation Engineer. Computer vision, reinforcement learning, sistemi embedded. Laurea magistrale in Ingegneria dell'Automazione, Università di Padova.">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="data:,">
 </head>
@@ -62,7 +62,7 @@
 
 <section id="projects">
     <h2>Progetti</h2>
-    <p class="lede screen-only">Ogni progetto ha una relazione tecnica completa in PDF, il codice sorgente e i numeri a sostegno di ogni affermazione.</p>
+    <p class="lede screen-only">Ogni progetto ha una relazione tecnica completa in PDF, il codice sorgente e i dati che documentano ogni risultato.</p>
 
     <article class="project">
       <h3><a href="https://github.com/artaeun/fine-grained-car-classification">Classificazione fine-grained di marche automobilistiche</a></h3>
@@ -76,7 +76,7 @@
       <h3><a href="https://github.com/artaeun/weather-classification-svm">Classificazione meteo con feature engineering e SVM</a></h3>
       <p class="goal"><span>Obiettivo</span> Classificare le condizioni meteo da una fotografia senza deep learning e misurare fin dove si arriva con la sola progettazione delle feature.</p>
       <p class="metric"><span>Risultato</span> 96,04% su MWD, e lo stesso descrittore ottiene il 90,6% su un dataset con distribuzione diversa.</p>
-      <p>Approccio classico: descrittori di colore e Difference-of-Gaussian progettati a mano, 1562 dimensioni ridotte a 200 con PCA, SVM ottimizzata con GridSearch. Nello studio cross-dataset le stesse feature, portate su un dataset con distribuzione diversa riaddestrando solo il classificatore, arrivano al 90,6%. Il dato dice quanto tiene un descrittore specializzato sul colore fuori dal dataset per cui è stato progettato. I modelli addestrati sono inclusi nel repository, così il classificatore gira senza scaricare nulla.</p>
+      <p>Approccio classico: descrittori di colore e Difference-of-Gaussian progettati a mano, 1562 dimensioni ridotte a 200 con PCA, SVM ottimizzata con GridSearch. Nello studio cross-dataset le stesse feature, portate su un dataset con distribuzione diversa riaddestrando solo il classificatore, arrivano al 90,6%. Questo risultato mostra quanto regge un descrittore basato sul colore fuori dal dataset per cui è stato progettato. I modelli addestrati sono inclusi nel repository, così il classificatore gira senza scaricare nulla.</p>
       <p class="stack">scikit-learn, OpenCV, PCA, SVM, feature engineering</p>
     </article>
 
@@ -119,7 +119,7 @@
       </div>
       <div>
         <h3>Infrastruttura</h3>
-        <p>Linux, Bash, Git, Docker, Apptainer, gestione di job SLURM su cluster HPC, Weights &amp; Biases, uv, LaTeX. Pratiche di riproducibilità: ablazioni controllate, ambienti containerizzati, tracciamento documentato di ogni esecuzione.</p>
+        <p>Linux, Bash, Git, Docker, Apptainer, gestione di job SLURM su cluster HPC, Weights &amp; Biases, uv, LaTeX. Pratiche di riproducibilità: ablation test controllati, ambienti containerizzati, tracciamento documentato di ogni esecuzione.</p>
       </div>
       <div>
         <h3>Linguaggi di programmazione</h3>
@@ -137,13 +137,13 @@
 <section id="interests" class="screen-only">
     <h2>Interessi</h2>
     <p>Ho rimesso mano a una Creality Ender 3 e ne ho tirato fuori una macchina sensibilmente migliore dell'originale: modifiche hardware, una build personalizzata del firmware Marlin caricata via UART, un profilo di slicing calibrato per pezzi funzionali in PETG con tolleranze strette. Senza quella stampante il riduttore del Sunflower non esisterebbe, e lavorandoci ho acquisito gran parte della mia sensibilità per la progettazione orientata alla produzione.</p>
-    <p>Per il resto: Factorio e Satisfactory, ovvero ottimizzazione di throughput e colli di bottiglia travestita da videogioco. Suono il pianoforte, ancora male ma con piacere, e ogni tanto disegno a mano o in digitale.</p>
+    <p>Mi piace giocare a Factorio e Satisfactory, che sono belli esercizi di ottimizzazione del throughput e dei colli di bottiglia. Suono il pianoforte, ancora male ma con piacere, e ogni tanto disegno a mano o in digitale.</p>
   </section>
 
 </main>
 
 <footer class="wrap">
-  <p class="colophon screen-only">Scrivetemi ad <a href="mailto:artaeun@gmail.com">artaeun@gmail.com</a>, oppure guardate il codice su <a href="https://github.com/artaeun">GitHub</a>.</p>
+  <p class="colophon screen-only">Potete scrivermi ad <a href="mailto:artaeun@gmail.com">artaeun@gmail.com</a> o consultare il codice su <a href="https://github.com/artaeun">GitHub</a>.</p>
   <p class="print-only">artaeun@gmail.com &nbsp;&middot;&nbsp; +39 340 519 2139 &nbsp;&middot;&nbsp; Tombolo (PD), Italia &nbsp;&middot;&nbsp; Portfolio, codice e relazioni tecniche complete: github.com/artaeun &nbsp;&middot;&nbsp; artaeun.github.io</p>
 </footer>
 
